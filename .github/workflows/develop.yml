@@ -23,7 +23,5 @@ jobs:
         npm install
         # Create a temporary file with the service account key
         echo "$GCP_SERVICE_ACCOUNT_KEY" | base64 -d > service-account.json
-        dataform init-creds --key-file service-account.json
-        dataform init-creds
         dataform compile
         dataform run

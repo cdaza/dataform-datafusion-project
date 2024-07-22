@@ -3,5 +3,8 @@
     "defaultSchema": "dataform",
     "assertionSchema": "dataform_assertions",
     "defaultDatabase": "dataform-datafusion-dev",
-    "defaultLocation": "US"
+    "defaultLocation": "US",
+    "credentials": {
+        "keyFilePath": ".service-account.json"
+      }
 }
