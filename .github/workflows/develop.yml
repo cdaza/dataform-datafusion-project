@@ -19,5 +19,6 @@ jobs:
     - name: Deploy Dataform configs
       run: |
         npm i -g @dataform/cli
+        cd dataform-project
         dataform compile
         dataform run
