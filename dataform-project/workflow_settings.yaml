@@ -1,4 +1,5 @@
+dataformCoreVersion: 3.0.0
 defaultProject: dataform-datafusion-dev
-defaultDataset: dataform
 defaultLocation: US
+defaultDataset: dataform
 defaultAssertionDataset: dataform_assertions
