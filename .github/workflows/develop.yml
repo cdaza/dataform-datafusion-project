@@ -10,18 +10,22 @@ jobs:
   deploy-to-dev:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0.2.1
-      with:
-        project_id: dataform-datafusion-dev
-        service_account_key: ${{ secrets.DEV_SA_KEY }}
-    - name: Deploy Dataform configs
-      run: |
-        npm i -g @dataform/cli
-        cd dataform-project
-        npm install
-        # Create a temporary file with the service account key
-        echo "$GCP_SERVICE_ACCOUNT_KEY" | base64 -d > service-account.json
-        dataform compile
-        dataform run
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.2.1
+        with:
+          project_id: dataform-datafusion-dev
+          service_account_key: ${{ secrets.DEV_SA_KEY }}
+      - name: Install dependencies
+        run: |
+          npm install -g @dataform/cli
+          cd dataform-project
+          npm install
+      - name: Deploy Dataform configs
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.DEV_SA_KEY }}
+        run: |
+          echo "$GCP_SERVICE_ACCOUNT_KEY" > service-account.json
+          dataform compile
+          dataform run
