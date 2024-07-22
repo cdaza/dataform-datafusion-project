@@ -20,7 +20,6 @@ jobs:
         run: |
           npm install -g @dataform/cli
           cd dataform-project
-          npm install
       - name: Deploy Dataform configs
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
