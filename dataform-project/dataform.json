@@ -3,6 +3,5 @@
     "defaultSchema": "dataform",
     "assertionSchema": "dataform_assertions",
     "defaultDatabase": "dataform-datafusion-dev",
-    "useRunCache": false,
     "defaultLocation": "US"
 }
