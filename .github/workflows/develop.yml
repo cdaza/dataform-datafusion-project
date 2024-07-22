@@ -21,5 +21,6 @@ jobs:
         npm i -g @dataform/cli
         cd dataform-project
         npm install
+        dataform init-creds bigquery dataform-project
         dataform compile
         dataform run
