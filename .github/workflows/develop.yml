@@ -21,10 +21,3 @@ jobs:
         npm i -g @dataform/cli
         dataform compile
         dataform run
-    - name: Deploy Data Fusion pipelines
-      env:
-        PROJECT_ID: dataform-datafusion-dev
-        REGION: us-central1
-        INSTANCE_ID: my-datafusion-dev
-      run: |
-        ./deploy_datafusion.sh
