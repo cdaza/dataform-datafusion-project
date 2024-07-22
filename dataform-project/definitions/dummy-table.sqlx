@@ -1,0 +1,9 @@
+config {
+  type: "table"
+}
+
+SELECT
+  fruit,
+  SUM(count) as count
+FROM ${ref("dummy-source")}
+GROUP BY 1
