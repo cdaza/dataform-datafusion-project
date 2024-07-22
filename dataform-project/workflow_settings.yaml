@@ -1,6 +1,4 @@
-# Configure query execution settings
-bigquery:
-  # Set a maximum number of concurrent queries
-  maximumConcurrentQueries: 10
-  # Set a location for temporary datasets used during query execution
-  location: US
+defaultProject: dataform-datafusion-dev
+defaultDataset: dataform
+defaultLocation: US
+defaultAssertionDataset: dataform_assertions
