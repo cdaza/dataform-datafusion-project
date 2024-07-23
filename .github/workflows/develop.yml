@@ -25,5 +25,6 @@ jobs:
           GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.DEV_SA_KEY }}
         run: |
           echo "$GCP_SERVICE_ACCOUNT_KEY" > service-account.json
-          dataform dataform-project compile
-          dataform dataform-project run
+          cd dataform-project
+          dataform compile
+          dataform run
