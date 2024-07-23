@@ -7,7 +7,24 @@ on:
     branches: [ develop ]
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      dataform_changed: ${{ steps.filter.outputs.dataform }}
+      datafusion_changed: ${{ steps.filter.outputs.datafusion }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          dataform:
+            - 'definitions/**'
+            - 'includes/**'
+            - 'workflow_settings.yaml'
+
   deploy-to-dev:
+    needs: check-changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
